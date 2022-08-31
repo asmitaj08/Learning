@@ -72,4 +72,18 @@ process control, file manipulation, device manipualtion, information maintenance
 
 ### Types of Parallelism
 * Data parallelism - it focuses on distributing subset of same data across multiple computing cores, and perfroming the same operation on each core.
-* Task parallelism - it distributes tasks across multiple cores, not data. 
+* Task parallelism - it distributes tasks (threads) across multiple cores, not data. Each thread performing unique operation. May be operating either on same or different data.
+
+### Multithreading model
+* Thread can be at user level , called user thread or at kernel level called kernel thread.
+* User thread are supported above teh kernel and managed without kernel support.
+* Kernel threads are managed and supported directly by operating system. 
+* Three common ways of establishing relation between user thread and kernel thread - many-to-one model , one-to-one model, and many-to-many model.
+* many-to-one maps many user thread to one kernel thread. Thread management is done by thread library in user space. In this case, only one thread can access the kernel at the time, multiple threads cannot run on parallel on multicore system , hence not suitable for multicore systems. 
+* one-to-one maps each user thread to a kernel thread. Provides more concurrency by allowing other threads to run even when thread amkes a blocking system call, but posses the overhead of creating kernel thread for each user thread that can buden application perfromance. Linux, along with famility of windows implements this.
+* many-to-many models multiplexes many user thread to smaller  or equal number of kernel threads. The number of kernel threads maybe specific to either the particular application or particlar machine. But it does not result in true concurrency as kernel can schedule only one thread at a time. One-to-one model allows greater concurrency but one has to be careful in not to create too many threads within the application. 
+*  The many-to-many model suffers neither of these shortcomings : developers can create as many threads as required, and corresponding kernel threads ac=can run in parallel on multi processor. Also, when thread perfroms blocking system call, the kernel can schedule another system call.
+* When user-level thread is allowed to bound to  a kernel thread, this variation is refered as two-level model.  
+
+### Threading library
+* Posix Pthread used in Unix system.
