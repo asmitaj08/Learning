@@ -1,5 +1,6 @@
 ## Basics
-
+### Reference - Book Operating System Concepts by Abraham Silberschatz, Peter Baer Galvin, Greg Gagne
+### Note : There might be several typo and spelling mistakes. Made just for my quick reference.
 ### system calls
 * They can be grouped roughly into 6 major categories :
 process control, file manipulation, device manipualtion, information maintenance, communications protection
