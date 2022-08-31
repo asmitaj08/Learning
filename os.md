@@ -72,4 +72,4 @@ process control, file manipulation, device manipualtion, information maintenance
 
 ### Types of Parallelism
 * Data parallelism - it focuses on distributing subset of same data across multiple computing cores, and perfroming the same operation on each core.
-* Type parallelism - 
+* Task parallelism - it distributes tasks across multiple cores, not data. 
