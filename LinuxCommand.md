@@ -7,4 +7,4 @@ Some commands are not especifically for this purpose of reading file but can be 
 * Less
 * Tail
 * Head
-* Sortq
+* Sort
